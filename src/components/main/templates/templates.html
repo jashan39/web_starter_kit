@@ -1,0 +1,186 @@
+<md-content class="templates">
+    <h2>Templates</h2>
+
+    <p>This page will house some basic templates that can be used to maintain an unified look and feel for BCGSC WebApp interfaces.</p>
+
+    <h2>Cards</h2>
+
+    <div layout="row", layout-align="space-around start" flex>
+        <div flex="45">
+            <div md-whiteframe="2" class="card">
+                <div class="header">
+                    <h1 layout="row">
+                        <span flex="flex" class="clickable">Card Title</span>
+                        <span layout="row" layout-align="middle space-around">
+                    <span>Title Detail</span>
+                </span>
+                    </h1>
+                    <div layout="row" class="subheader">
+                        <span flex="flex">Title Subheader</span>
+                        <span flex="flex" class="text-right">Subheader: Detail</span></div>
+                </div>
+                <div layout="row" class="details">
+                    <div flex="flex">
+                        <span>Title 1 </span>
+                        <span>Value
+                            <md-tooltip>Tooltip on hover</md-tooltip>
+                        </span>
+                    </div>
+                    <div>Kicked-right</div>
+                </div>
+                <div layout="row" class="details">
+                    <div flex="flex">
+                        <span>Title 2</span>
+                        <span>Value</span>
+                    </div>
+                    <div>
+                        Kicked-right
+                        <md-tooltip>Also has a tooltip</md-tooltip>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div flex="45">
+
+            <div class="card" md-whiteframe=2>
+                <div class="header">
+                    <h1 layout="row">
+                        <md-icon md-whiteframe="2" class="warning clickable">error</md-icon>
+                        <md-icon md-whiteframe="2" class="notice clickable">watch_later</md-icon>
+                        <span flex="flex">Card Title</span>
+                    </h1>
+                    <div layout="row" class="subheader">
+                        <span flex="flex">Subheader</span>
+                        <span class="priority"><span>Detail:</span>
+                            <span>Low</span>
+                        </span>
+                    </div>
+                </div>
+                <div layout="column" ng-show="showTasks" class="tasks">
+                    <div ng-show="loadingTasks">
+                        <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+                        <div class="text-center">Loading Tasks</div>
+                    </div>
+                    <div layout="row">
+                        <span>1.</span>
+                        <span flex="flex" md-truncate="md-truncate" ng-click="showTask($event, task)" class="clickable">List Item Name</span>
+                    </div>
+                    <div layout="row">
+                        <span>2.</span>
+                        <span flex="flex" md-truncate="md-truncate" ng-click="showTask($event, task)" class="clickable">List Item Name</span>
+                    </div>
+                    <div layout="row">
+                        <span>3.</span>
+                        <span flex="flex" md-truncate="md-truncate" ng-click="showTask($event, task)" class="clickable">List Item Name</span>
+                    </div>
+                    <div layout="row">
+                        <span>4.</span>
+                        <span flex="flex" md-truncate="md-truncate" ng-click="showTask($event, task)" class="clickable">List Item Name</span>
+                    </div>
+                </div>
+                <div layout="row" flex="flex" class="taskToggle">
+                    <div flex="flex"></div>
+                    <div ng-click="showTasks = !showTasks" class="clickable text-center toggle">
+                        <md-icon>{{(showTasks) ? 'arrow_drop_up' : 'arrow_drop_down'}}
+                            <md-tooltip>{{(showTasks) ? 'Hide list of tasks' : 'Show list of tasks'}}</md-tooltip>
+                        </md-icon>
+                    </div>
+                    <div flex="flex" layout="row" class="edit">
+                        <span flex="flex"></span>
+                        <span layout="row" ng-click="showState()" class="clickable">
+                            <span flex="flex" class="text-right">settings</span>
+                            <md-icon>edit</md-icon>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br /><br />
+    <h2>Forms</h2>
+
+    <div layout="column" flex="95">
+        <form name="formName" novalidate="novalidate">
+            <div layout="row">
+                <md-input-container flex="flex">
+                    <input ng-model="model.split1" name="Split2" placeholder="Split Row 1" required="required"/>
+                    <div ng-messages="formName.Split2.$error" role="alert" multiple="multiple">
+                        <p ng-message="required">Split value 1 is required</p>
+                    </div>
+                </md-input-container>
+                <md-input-container flex="flex">
+                    <input ng-model="model.split2" name="Split2" placeholder="Split Row 2" required="required"/>
+                    <div ng-messages="formName.Split2.$error" role="alert" multiple="multiple">
+                        <p ng-message="required">Split value 2 is required</p>
+                    </div>
+                </md-input-container>
+                <md-input-container>
+                    <md-icon class="clickable">help</md-icon>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex="flex">
+                    <md-select ng-model="model.select" aria-label="Drop down select" required="required" placeholder="Drop Down/Select">
+                        <md-option ng-value="'value1'">Value 1</md-option>
+                        <md-option ng-value="'value2'">Value 2</md-option>
+                        <md-option ng-value="'value3'">Value 3</md-option>
+                        <md-option ng-value="'value4'">Value 4</md-option>
+                        <md-option ng-value="'value5'">Value 5</md-option>
+                    </md-select>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex="flex">
+                    <textarea ng-model="model.textarea" name="TextArea" required="required" placeholder="Text Area Description" md-maxlength="500"></textarea>
+                    <div ng-messages="formName.TextArea.$error" role="alert" multiple="multiple">
+                        <p ng-message="maxlength">A maximum of 500 characters is allowed for descriptions</p>
+                        <p ng-message="required">This input is required</p>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div layout="row">
+                <md-input-container flex="flex">
+                    <input ng-model="model.fullwidth" name="fullWidth" placeholder="Full Width" />
+                    <div ng-messages="formName.fullWidth.$error" role="alert" multiple="multiple">
+                        <p ng-message="required">Full width is required</p>
+                    </div>
+                </md-input-container>
+            </div>
+
+            <div layout="row">
+                <md-input-container flex="flex">
+                    <md-checkbox ng-model="model.checkbox" aria-label="Checkbox">Checkbox input with it's label.</md-checkbox>
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <div flex></div>
+                <div>
+                    <md-button type="submit" class="md-raised md-primary">Submit Form</md-button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <h2>Kanban Board</h2>
+    <div style="min-height: 400px;", layout="column"> <!-- This will simulate a larger window/browser pane. copy the nested div.kanban - NOT THIS DIV -->
+
+        <div layout="column" flex="flex" class="kanban">
+            <div layout="row" flex="flex" layout-align="space-between">
+                <md-content layout="column" flex="flex" class="column">col 1</md-content>
+                <md-content layout="column" flex="flex" class="column">col 2</md-content>
+                <md-content layout="column" flex="flex" class="column">col 3</md-content>
+            </div>
+
+        </div>
+    </div>
+    <div layout="row" class="stateDefs">
+        <p class="pending">Pending</p>
+        <p class="active">Active</p>
+        <p class="complete">Completed</p>
+        <p class="hold">Hold</p>
+        <p class="failed">Failed</p>
+    </div>
+
+
+</md-content>

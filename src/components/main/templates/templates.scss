@@ -1,0 +1,352 @@
+.templates {
+  background-color: white;
+
+  h2 {
+    font-size: 25px;
+    font-weight: normal;
+    margin-top: 0;
+  }
+
+  padding: 20px;
+}
+
+.kanban {
+
+  .title {
+    div {
+      font-size: 0.90em;
+      color: rgba(0, 0, 0, 0.54);
+      padding: 0 0 8px 0;
+      text-align: left;
+    }
+  }
+
+  .column {
+    overflow-y: auto;
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(200, 200, 200);
+    padding: 7px 8px;
+    margin-right: 10px;
+  }
+}
+
+.card {
+  background-color: rgb(255,255,255);
+  margin: 5px 0;
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  div.header {
+    background-color: rgb(62, 79, 177);
+    color: rgb(255, 255, 255);
+    padding: 4px 13px 4px 13px;
+    min-height: 57px;
+
+    h1 {
+      font-weight: 500;
+      font-size: 1.2em;
+      margin: 0 0 5px 0;
+      padding: 7px 8px 0 0;
+
+      md-icon {
+        &.warning {
+          background-color: #ff3820;
+        }
+        &.notice {
+          background-color: #d1bb10;
+        }
+
+        color: rgb(255,255,255);
+        padding: 3px;
+        border-radius: 3px;
+        margin-right: 4px;
+        font-size: 18px;
+        min-height: 18px;
+        height: 18px;
+        width: 18px;
+        min-width: 18px;
+      }
+
+      span.priority {
+        margin-right: auto;
+        float: right;
+        width: 37px;
+        height: 13px;
+        padding: 1px;
+        border: 1px solid rgba(255,255,255, 0.5);
+        background: rgba(255,255,255, 0.10);
+        font-size: 12.8px;
+
+        span.pip {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background-color: rgb(255,255,255);
+          margin: 0 1px;
+          border: 1px solid rgba(255,255,255, 0.6);
+
+          &.high { background-color: rgb(255, 37, 0); }
+          &.normal { background-color: rgb(0, 220, 16); }
+          &.low { background-color: rgb(255, 188, 0); }
+        }
+      }
+    }
+
+  }
+
+  div.details {
+    padding: 8px 10px;
+    min-height: 15px;
+
+    span.low {
+      color: red;
+    }
+
+    div:last-of-type {
+      text-transform: capitalize;
+    }
+  }
+
+  div {
+    padding: 3px 10px;
+    div {
+      padding: 0;
+      font-size: 0.80em;
+
+      span:first-of-type {
+        font-weight: 100;
+      }
+      span:nth-of-type(2) {
+        font-weight: 700;
+        margin-left: 10px;
+      }
+
+      span md-icon {
+        font-size: 18px;
+        max-height: 20px;
+        height: 20px;
+        max-width: 20px;
+        width: 20px;
+      }
+
+      span.circle {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid rgb(100,100,100);
+        display: inline-block;
+        margin-bottom: -2px;
+
+        &.active {
+          background-color: rgb(46, 204, 113);
+        }
+      }
+    }
+  }
+
+  div.tasks {
+    border-top: 1px solid rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    padding: 5px 0;
+
+    div {
+      border-bottom: 1px solid rgb(230,230,230);
+      padding: 2px 0;
+      min-height: 15px;
+
+      &:last-of-type { border-bottom: none; }
+
+
+      md-icon {
+        width: 17px;
+        height: 17px;
+        min-height: 17px;
+        min-width: 17px;
+        font-size: 17px;
+        margin-right: 5px;
+        cursor: pointer;
+
+      }
+
+      img {
+        margin-right: 6px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      div.popover-container {
+        position: relative;
+        width: 1px;
+        height: 1px;
+        float: left;
+
+        div.content {
+          position: absolute;
+          background-color: white;
+          width: 320px;
+          margin-left: -325px;
+          margin-top: -6px;
+          z-index: 100;
+          padding: 0;
+          font-size: 14px;
+
+
+          .header {
+            background-color: rgba(62,79,177, 1);
+            color: rgb(255,255,255);
+            font-size: 18px;
+            padding: 4px 8px;
+          }
+          .body {
+            padding: 5px;
+            font-size: 1.0em;
+
+            .avatar {
+              border: none;
+              img { cursor: auto }
+            }
+
+            .details {
+              > span {
+                margin-bottom: 5px;
+              }
+            }
+          }
+
+        }
+      }
+
+      span.value {
+        margin-right: 8px;
+      }
+
+      &.stateDetails span:nth-of-type(2) {
+        font-weight: 200;
+        text-align: center;
+        padding-right: 15px;
+        padding-bottom: 5px;
+      }
+
+      span:first-of-type {
+        font-weight: 100;
+        margin-right: 5px;
+        padding-left: 10px;
+        width: 16px;
+        text-align: right;
+      }
+      span:nth-of-type(2) {
+        margin-left: 0;
+        font-weight: 700;
+      }
+      span.status:last-of-type {
+        width: 9px;
+        height: 9px;
+        border: 1px solid rgba(0,0,0,0.4);
+        margin-top: 2px;
+        border-radius: 50%;
+        margin-right: 10px;
+        background-color: rgb(255,255,255);
+
+        &.hold {
+          background-color: rgb(242, 220, 17);
+        }
+        &.active {
+          background-color: rgba(62,79,177, 1);
+        }
+        &.complete {
+          background-color: rgb(46, 204, 113);
+        }
+        &.failed {
+          border-color: rgb(255,255,255);
+          background-color: rgb(204, 0, 6);
+        }
+
+      }
+    }
+  }
+
+  div.taskToggle {
+    text-align: center;
+    color: rgba(0,0,0,0.6);
+    transition: 0.5s;
+    min-height: 25px;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-weight: 500;
+
+    &:hover {
+      div.edit {
+        span { display: inline; }
+        md-icon { display: inline-block; }
+      }
+    }
+
+    div.edit {
+      padding-top: 4px;
+
+      span {
+        display: none;
+      }
+
+      md-icon {
+        margin-left: 4px;
+        font-size: 13px;
+        max-height: 13px;
+        min-width: 13px;
+        max-width: 13px;
+        width: 13px;
+        display: none;
+        margin-top: -4px;
+      }
+    }
+
+    md-icon {
+      font-size: 15px;
+      min-height: 15px;
+      height: 15px;
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .toggle {
+      md-icon {
+        transition: 0.3s;
+      }
+
+      &:hover {
+        color: rgb(71, 94, 197);
+
+        md-icon {
+          color: rgb(71, 94, 197);
+        }
+      }
+    }
+  }
+}
+
+.stateDefs {
+
+  p {
+    margin: 10px 10px 0 0;
+    font-size: 11px;
+    color: rgba(0,0,0,0.6);
+  }
+
+  p:before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border: 1px solid #c8c8c8;
+    margin-right: 4px;
+    border-radius: 3px;
+  }
+
+  p.complete:before { background-color: #2bae57; }
+  p.active:before { background-color: #65d1cb; }
+  p.hold:before { background-color: #e9dd4e; }
+  p.pending:before { background-color: #aaaaaa; }
+  p.failed:before { background-color: #df2816; }
+
+}

@@ -1,0 +1,27 @@
+<md-toolbar layout="row" class="main-title">
+    <h2>AngularJS 1.6 Starter Kit</h2>
+</md-toolbar>
+<div layout="column" flex>
+    <div layout="row" flex>
+
+        <md-sidenav flex="15" md-is-locked-open="true" class="md-accent">
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools">Navigation</h1>
+            </md-toolbar>
+
+            <md-list>
+                <md-list-item ui-sref="main.home">Home</md-list-item>
+                <md-list-item ui-sref="main.nytimes">NY Times Article API</md-list-item>
+                <md-list-item ui-sref="main.binding">Model Binding Example</md-list-item>
+                <md-list-item ui-sref="main.directive">Directive Example</md-list-item>
+                <md-list-item ui-sref="main.templates">Templates</md-list-item>
+            </md-list>
+
+
+        </md-sidenav>
+        <div flex layout="column" ui-view="">
+
+        </div>
+
+    </div>
+</div>

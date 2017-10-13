@@ -1,0 +1,59 @@
+<md-content class="userPage">
+    <h3>Model Binding Example</h3>
+
+    <p>
+        In this demonstration, we'll be demonstrating the 2-way data binding design of AngularJS. Here we'll be adding
+        users to an inline JS array using a form. As we add users to the array, we'll see AngularJS adding them to the
+        DOM using an <span class="inline-code">ng-repeat</span> directive.
+    </p>
+
+    <div layout="column">
+        <form name="userForm" ng-submit="addUser(userForm)">
+            <div layout="row">
+                <md-input-container flex="50">
+                    <input ng-model="user.name" placeholder="Name" />
+                </md-input-container>
+            </div>
+            <div layout="row">
+                <md-input-container flex="50">
+                    <input ng-model="user.job" placeholder="Job" />
+                </md-input-container>
+
+                <div>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <md-button type="submit" class="md-primary md-raised">Add User</md-button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <div layout="row" layout-wrap class="user-list">
+        <md-card md-theme="" ng-repeat="(i, user) in users" class="user">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{user.name}}</span>
+                    <span class="md-subhead">{{user.job}}</span>
+                </md-card-title-text>
+                <md-card-title-media>
+                    <md-icon>person</md-icon>
+                </md-card-title-media>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="removeUser(i)" class="md-raised md-warn">Remove User</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+
+    <div layout="row" layout-wrap class="user-list">
+        <md-card md-theme="" ng-show="users.length === 0" class="user">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">No Users</span>
+                </md-card-title-text>
+            </md-card-title>
+        </md-card>
+    </div>
+
+
+</md-content>

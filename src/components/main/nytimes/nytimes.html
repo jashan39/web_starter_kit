@@ -1,0 +1,32 @@
+<md-content class="nytimes">
+    <h3>NY Times Page</h3>
+
+    <p>In this demonstration, we'll be using the <span class="inline-code">/src/api/nytimes.js</span> API interface factory to make realtime API calls.</p>
+
+    <div layout="column">
+        <div layout="row">
+            <md-input-container flex="80">
+                <input ng-model="search" placeholder="Article Search Term">
+            </md-input-container>
+            <div flex layout="row" layout-align="space-around center">
+                <md-button class="md-primary md-raised" ng-click="searchNYT()">Search</md-button>
+            </div>
+        </div>
+
+    </div>
+
+    <span ng-show="searching">Searching...</span>
+
+    <div ng-show="articleSearchResults !== null">
+        <h2>Search Results</h2>
+        <p>The first 10 search results (if any) found:</p>
+        <div layout="column">
+            <div ng-repeat="article in articleSearchResults" md-whiteframe="2" class="article">
+                <h4>{{article.headline.main}}</h4>
+                <h5>{{ article.pub_date | amDateFormat: 'YYYY/MM/DD' }} - {{article.byline.original}}</h5>
+                <p>{{article.lead_paragraph}}</p>
+            </div>
+        </div>
+    </div>
+
+</md-content>
